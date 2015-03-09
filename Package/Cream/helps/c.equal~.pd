@@ -1,0 +1,18 @@
+#N canvas 521 98 625 321 10;
+#X obj 165 248 c.help.pub;
+#X obj 217 132 c.==~;
+#X obj 217 94 sig~ 1;
+#X msg 90 123 \; pd dsp 1;
+#X msg 90 183 \; pd dsp 0;
+#X obj 217 186 c.number~ @size 53 17 @fontname Helvetica @fontweight
+normal @fontslant roman @fontsize 11 @receive (null) @send (null) @interval
+50 @decimal 6 @bgcolor 0.75 0.75 0.75 1 @bdcolor 0.5 0.5 0.5 1 @textcolor
+0 0 0 1;
+#X msg 271 94 value \$1;
+#X obj 265 59 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 1 256;
+#X text 337 93 Value is an attribute.;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 6 0 1 1;
+#X connect 7 0 6 0;

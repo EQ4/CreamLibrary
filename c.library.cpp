@@ -40,6 +40,7 @@ extern "C" void setup_c0x2elibrary(void)
     // Cinnamon
     setup_c0x2eatan_tilde();
     setup_c0x2esin_tilde();
+    setup_c0x2eequal_tilde();
     
 	// Caramel
 	setup_c0x2econvolve_tilde();
