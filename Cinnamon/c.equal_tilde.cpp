@@ -39,6 +39,7 @@ extern void *equal_tilde_new(t_symbol *s, int argc, t_atom *argv)
     t_equal_tilde *x = (t_equal_tilde *)eobj_new(equal_tilde_class);
     x->f_value       = 0;
     eobj_dspsetup((t_ebox *)x, 2, 1);
+    ebox_attrprocess_viatoms(x, argc, argv); // ebox mais ça fonctionne
     return (x);
 }
 
