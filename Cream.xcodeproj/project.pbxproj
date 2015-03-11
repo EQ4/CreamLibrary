@@ -25,6 +25,18 @@
 		8FA8BB321A47E6560001EB87 /* c.atan_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8BB301A47E6560001EB87 /* c.atan_tilde.cpp */; };
 		8FA8BB341A47EAD80001EB87 /* c.sin_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8BB331A47EAD80001EB87 /* c.sin_tilde.cpp */; };
 		8FA8BB351A47EAD80001EB87 /* c.sin_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8BB331A47EAD80001EB87 /* c.sin_tilde.cpp */; };
+		8FA9ED521AAE084400946CBD /* AudioFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9ED4C1AAE084400946CBD /* AudioFFT.cpp */; };
+		8FA9ED531AAE084400946CBD /* AudioFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9ED4C1AAE084400946CBD /* AudioFFT.cpp */; };
+		8FA9ED541AAE084400946CBD /* AudioFFT.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9ED4D1AAE084400946CBD /* AudioFFT.h */; };
+		8FA9ED551AAE084400946CBD /* AudioFFT.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9ED4D1AAE084400946CBD /* AudioFFT.h */; };
+		8FA9ED561AAE084400946CBD /* FFTConvolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9ED4E1AAE084400946CBD /* FFTConvolver.cpp */; };
+		8FA9ED571AAE084400946CBD /* FFTConvolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9ED4E1AAE084400946CBD /* FFTConvolver.cpp */; };
+		8FA9ED581AAE084400946CBD /* FFTConvolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9ED4F1AAE084400946CBD /* FFTConvolver.h */; };
+		8FA9ED591AAE084400946CBD /* FFTConvolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9ED4F1AAE084400946CBD /* FFTConvolver.h */; };
+		8FA9ED5A1AAE084400946CBD /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9ED501AAE084400946CBD /* Utilities.cpp */; };
+		8FA9ED5B1AAE084400946CBD /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FA9ED501AAE084400946CBD /* Utilities.cpp */; };
+		8FA9ED5C1AAE084400946CBD /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9ED511AAE084400946CBD /* Utilities.h */; };
+		8FA9ED5D1AAE084400946CBD /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA9ED511AAE084400946CBD /* Utilities.h */; };
 		8FAC0BA71969731800E09ACB /* c.gain_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3219007B04005FAF6A /* c.gain_tilde.cpp */; };
 		8FAC0BA81969731800E09ACB /* c.patcherinfos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB6D190080E9005FAF6A /* c.patcherinfos.cpp */; };
 		8FAC0BAB1969731800E09ACB /* c.rslider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3C19007B04005FAF6A /* c.rslider.cpp */; };
@@ -44,32 +56,20 @@
 		8FAC0BCA1969731800E09ACB /* c.incdec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3319007B04005FAF6A /* c.incdec.cpp */; };
 		8FAC0BCC1969731800E09ACB /* c.preset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3A19007B04005FAF6A /* c.preset.cpp */; };
 		8FAC0BCE1969731800E09ACB /* c.mousestate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F5DB22419630E41005DE808 /* c.mousestate.cpp */; };
-		8FAC0BCF1969731800E09ACB /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2B19007B04005FAF6A /* Utilities.cpp */; };
 		8FAC0BD11969731800E09ACB /* c.meter_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3619007B04005FAF6A /* c.meter_tilde.cpp */; };
 		8FAC0BD21969731800E09ACB /* c.colorpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3119007B04005FAF6A /* c.colorpanel.cpp */; };
 		8FAC0BD31969731800E09ACB /* c.pak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB6B190080E9005FAF6A /* c.pak.cpp */; };
 		8FAC0BD41969731800E09ACB /* c.freeverb_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2819007B04005FAF6A /* c.freeverb_tilde.cpp */; };
 		8FAC0BD71969731800E09ACB /* c.menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3519007B04005FAF6A /* c.menu.cpp */; };
 		8FAC0BD81969731800E09ACB /* c.blackboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2F19007B04005FAF6A /* c.blackboard.cpp */; };
-		8FAC0BD91969731800E09ACB /* AudioFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2519007B04005FAF6A /* AudioFFT.cpp */; };
 		8FAC0BDA1969731800E09ACB /* c.patcherargs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB6C190080E9005FAF6A /* c.patcherargs.cpp */; };
 		8FAC0BDB1969731800E09ACB /* c.radio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3B19007B04005FAF6A /* c.radio.cpp */; };
 		8FAC0BDC1969731800E09ACB /* c.library.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8F26F18A17E76273005FCB97 /* c.library.cpp */; };
 		8FAC0BE01969731800E09ACB /* c.knob.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3419007B04005FAF6A /* c.knob.cpp */; };
-		8FAC0BE11969731800E09ACB /* FFTConvolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2919007B04005FAF6A /* FFTConvolver.cpp */; };
 		8FAC0BE31969731800E09ACB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59FB02F717A7FAA9001E977D /* Accelerate.framework */; };
-		8FAC0BE71969731800E09ACB /* FFTConvolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB8EB2A19007B04005FAF6A /* FFTConvolver.h */; };
-		8FAC0BED1969731800E09ACB /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB8EB2C19007B04005FAF6A /* Utilities.h */; };
 		8FAC0BF21969731800E09ACB /* c.library.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB8EB6719007B1E005FAF6A /* c.library.h */; };
-		8FAC0BF51969731800E09ACB /* AudioFFT.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB8EB2619007B04005FAF6A /* AudioFFT.h */; };
-		8FB8EB4719007B04005FAF6A /* AudioFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2519007B04005FAF6A /* AudioFFT.cpp */; };
-		8FB8EB4819007B04005FAF6A /* AudioFFT.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB8EB2619007B04005FAF6A /* AudioFFT.h */; };
 		8FB8EB4919007B04005FAF6A /* c.convolve_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2719007B04005FAF6A /* c.convolve_tilde.cpp */; };
 		8FB8EB4A19007B04005FAF6A /* c.freeverb_tilde.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2819007B04005FAF6A /* c.freeverb_tilde.cpp */; };
-		8FB8EB4B19007B04005FAF6A /* FFTConvolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2919007B04005FAF6A /* FFTConvolver.cpp */; };
-		8FB8EB4C19007B04005FAF6A /* FFTConvolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB8EB2A19007B04005FAF6A /* FFTConvolver.h */; };
-		8FB8EB4D19007B04005FAF6A /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2B19007B04005FAF6A /* Utilities.cpp */; };
-		8FB8EB4E19007B04005FAF6A /* Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FB8EB2C19007B04005FAF6A /* Utilities.h */; };
 		8FB8EB4F19007B04005FAF6A /* c.bang.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2E19007B04005FAF6A /* c.bang.cpp */; };
 		8FB8EB5019007B04005FAF6A /* c.blackboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB2F19007B04005FAF6A /* c.blackboard.cpp */; };
 		8FB8EB5119007B04005FAF6A /* c.breakpoints.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8FB8EB3019007B04005FAF6A /* c.breakpoints.cpp */; };
@@ -184,15 +184,15 @@
 		8FA256681A57E3CA00CD0697 /* c.spectroscope_tilde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.spectroscope_tilde.cpp; sourceTree = "<group>"; };
 		8FA8BB301A47E6560001EB87 /* c.atan_tilde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.atan_tilde.cpp; sourceTree = "<group>"; };
 		8FA8BB331A47EAD80001EB87 /* c.sin_tilde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.sin_tilde.cpp; sourceTree = "<group>"; };
+		8FA9ED4C1AAE084400946CBD /* AudioFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFFT.cpp; sourceTree = "<group>"; };
+		8FA9ED4D1AAE084400946CBD /* AudioFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFFT.h; sourceTree = "<group>"; };
+		8FA9ED4E1AAE084400946CBD /* FFTConvolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTConvolver.cpp; sourceTree = "<group>"; };
+		8FA9ED4F1AAE084400946CBD /* FFTConvolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTConvolver.h; sourceTree = "<group>"; };
+		8FA9ED501AAE084400946CBD /* Utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = "<group>"; };
+		8FA9ED511AAE084400946CBD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		8FAC0BFB1969731800E09ACB /* cream.pd_darwin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = cream.pd_darwin; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FB8EB2519007B04005FAF6A /* AudioFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioFFT.cpp; sourceTree = "<group>"; };
-		8FB8EB2619007B04005FAF6A /* AudioFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFFT.h; sourceTree = "<group>"; };
 		8FB8EB2719007B04005FAF6A /* c.convolve_tilde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.convolve_tilde.cpp; sourceTree = "<group>"; };
 		8FB8EB2819007B04005FAF6A /* c.freeverb_tilde.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.freeverb_tilde.cpp; sourceTree = "<group>"; };
-		8FB8EB2919007B04005FAF6A /* FFTConvolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFTConvolver.cpp; sourceTree = "<group>"; };
-		8FB8EB2A19007B04005FAF6A /* FFTConvolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFTConvolver.h; sourceTree = "<group>"; };
-		8FB8EB2B19007B04005FAF6A /* Utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = "<group>"; };
-		8FB8EB2C19007B04005FAF6A /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		8FB8EB2E19007B04005FAF6A /* c.bang.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.bang.cpp; sourceTree = "<group>"; };
 		8FB8EB2F19007B04005FAF6A /* c.blackboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.blackboard.cpp; sourceTree = "<group>"; };
 		8FB8EB3019007B04005FAF6A /* c.breakpoints.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = c.breakpoints.cpp; sourceTree = "<group>"; };
@@ -319,12 +319,12 @@
 				8F6728A81A77E98B009A955F /* c.fft_tilde.cpp */,
 				8FB8EB2819007B04005FAF6A /* c.freeverb_tilde.cpp */,
 				8FA255E21A56E57C00CD0697 /* c.matrix_tilde.cpp */,
-				8FB8EB2519007B04005FAF6A /* AudioFFT.cpp */,
-				8FB8EB2619007B04005FAF6A /* AudioFFT.h */,
-				8FB8EB2919007B04005FAF6A /* FFTConvolver.cpp */,
-				8FB8EB2A19007B04005FAF6A /* FFTConvolver.h */,
-				8FB8EB2B19007B04005FAF6A /* Utilities.cpp */,
-				8FB8EB2C19007B04005FAF6A /* Utilities.h */,
+				8FA9ED4C1AAE084400946CBD /* AudioFFT.cpp */,
+				8FA9ED4D1AAE084400946CBD /* AudioFFT.h */,
+				8FA9ED4E1AAE084400946CBD /* FFTConvolver.cpp */,
+				8FA9ED4F1AAE084400946CBD /* FFTConvolver.h */,
+				8FA9ED501AAE084400946CBD /* Utilities.cpp */,
+				8FA9ED511AAE084400946CBD /* Utilities.h */,
 			);
 			path = Caramel;
 			sourceTree = "<group>";
@@ -483,15 +483,15 @@
 				8FD167D3196FCA1D00D5104D /* ebox.h in Headers */,
 				8FD167E1196FCA1D00D5104D /* eclass.h in Headers */,
 				8FD1681D196FCA1D00D5104D /* epd.h in Headers */,
-				8FB8EB4C19007B04005FAF6A /* FFTConvolver.h in Headers */,
 				8FD167F7196FCA1D00D5104D /* ecommon.h in Headers */,
-				8FB8EB4E19007B04005FAF6A /* Utilities.h in Headers */,
+				8FA9ED581AAE084400946CBD /* FFTConvolver.h in Headers */,
 				8FD16823196FCA1D00D5104D /* epopup.h in Headers */,
 				8FD16807196FCA1D00D5104D /* egraphics.h in Headers */,
+				8FA9ED5C1AAE084400946CBD /* Utilities.h in Headers */,
+				8FA9ED541AAE084400946CBD /* AudioFFT.h in Headers */,
 				8FD16825196FCA1D00D5104D /* estruct.h in Headers */,
 				8FB8EB6819007B1E005FAF6A /* c.library.h in Headers */,
 				8FD167F3196FCA1D00D5104D /* eboxflag.h in Headers */,
-				8FB8EB4819007B04005FAF6A /* AudioFFT.h in Headers */,
 				8FD1681F196FCA1D00D5104D /* epd_max.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,15 +505,15 @@
 				8FD167D4196FCA1D00D5104D /* ebox.h in Headers */,
 				8FD167E2196FCA1D00D5104D /* eclass.h in Headers */,
 				8FD1681E196FCA1D00D5104D /* epd.h in Headers */,
-				8FAC0BE71969731800E09ACB /* FFTConvolver.h in Headers */,
 				8FD167F8196FCA1D00D5104D /* ecommon.h in Headers */,
-				8FAC0BED1969731800E09ACB /* Utilities.h in Headers */,
+				8FA9ED591AAE084400946CBD /* FFTConvolver.h in Headers */,
 				8FD16824196FCA1D00D5104D /* epopup.h in Headers */,
 				8FD16808196FCA1D00D5104D /* egraphics.h in Headers */,
+				8FA9ED5D1AAE084400946CBD /* Utilities.h in Headers */,
+				8FA9ED551AAE084400946CBD /* AudioFFT.h in Headers */,
 				8FD16826196FCA1D00D5104D /* estruct.h in Headers */,
 				8FAC0BF21969731800E09ACB /* c.library.h in Headers */,
 				8FD167F4196FCA1D00D5104D /* eboxflag.h in Headers */,
-				8FAC0BF51969731800E09ACB /* AudioFFT.h in Headers */,
 				8FD16820196FCA1D00D5104D /* epd_max.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,9 +613,11 @@
 				8FA256691A57E3CA00CD0697 /* c.spectroscope_tilde.cpp in Sources */,
 				8FD167E7196FCA1D00D5104D /* eclass_attroptions.c in Sources */,
 				8FD1680F196FCA1D00D5104D /* egraphics_text.c in Sources */,
+				8FA9ED521AAE084400946CBD /* AudioFFT.cpp in Sources */,
 				8FB8EB6019007B04005FAF6A /* c.tab.cpp in Sources */,
 				8FD16821196FCA1D00D5104D /* epopup.c in Sources */,
 				8FB8EB5F19007B04005FAF6A /* c.slider.cpp in Sources */,
+				8FA9ED561AAE084400946CBD /* FFTConvolver.cpp in Sources */,
 				8FB8EB5E19007B04005FAF6A /* c.scope_tilde.cpp in Sources */,
 				8FB8EB4919007B04005FAF6A /* c.convolve_tilde.cpp in Sources */,
 				8FD16819196FCA1D00D5104D /* eobj_proxy.c in Sources */,
@@ -625,7 +627,6 @@
 				8FD16817196FCA1D00D5104D /* eobj_handle.c in Sources */,
 				8FA255E31A56E57C00CD0697 /* c.matrix_tilde.cpp in Sources */,
 				8F5DB22519630E41005DE808 /* c.mousestate.cpp in Sources */,
-				8FB8EB4D19007B04005FAF6A /* Utilities.cpp in Sources */,
 				8F1E0E761A46FEF400551842 /* c.matrix.cpp in Sources */,
 				8FB8EB5719007B04005FAF6A /* c.meter_tilde.cpp in Sources */,
 				8FB8EB5219007B04005FAF6A /* c.colorpanel.cpp in Sources */,
@@ -634,7 +635,6 @@
 				8FB8EB4A19007B04005FAF6A /* c.freeverb_tilde.cpp in Sources */,
 				8FB8EB5619007B04005FAF6A /* c.menu.cpp in Sources */,
 				8FB8EB5019007B04005FAF6A /* c.blackboard.cpp in Sources */,
-				8FB8EB4719007B04005FAF6A /* AudioFFT.cpp in Sources */,
 				8FB8EB71190080E9005FAF6A /* c.patcherargs.cpp in Sources */,
 				8FB8EB5C19007B04005FAF6A /* c.radio.cpp in Sources */,
 				8FD1680B196FCA1D00D5104D /* egraphics_forms.c in Sources */,
@@ -650,7 +650,7 @@
 				8FD16815196FCA1D00D5104D /* eobj_dsp.c in Sources */,
 				8FD167DD196FCA1D00D5104D /* ebox_patcher.c in Sources */,
 				8FD167D5196FCA1D00D5104D /* ebox_attr.c in Sources */,
-				8FB8EB4B19007B04005FAF6A /* FFTConvolver.cpp in Sources */,
+				8FA9ED5A1AAE084400946CBD /* Utilities.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,9 +685,11 @@
 				8FA2566A1A57E3CA00CD0697 /* c.spectroscope_tilde.cpp in Sources */,
 				8FD167E8196FCA1D00D5104D /* eclass_attroptions.c in Sources */,
 				8FD16810196FCA1D00D5104D /* egraphics_text.c in Sources */,
+				8FA9ED531AAE084400946CBD /* AudioFFT.cpp in Sources */,
 				8FAC0BC11969731800E09ACB /* c.tab.cpp in Sources */,
 				8FD16822196FCA1D00D5104D /* epopup.c in Sources */,
 				8FAC0BC21969731800E09ACB /* c.slider.cpp in Sources */,
+				8FA9ED571AAE084400946CBD /* FFTConvolver.cpp in Sources */,
 				8FAC0BC51969731800E09ACB /* c.scope_tilde.cpp in Sources */,
 				8FAC0BC81969731800E09ACB /* c.convolve_tilde.cpp in Sources */,
 				8FD1681A196FCA1D00D5104D /* eobj_proxy.c in Sources */,
@@ -697,7 +699,6 @@
 				8FD16818196FCA1D00D5104D /* eobj_handle.c in Sources */,
 				8FA255E41A56E57C00CD0697 /* c.matrix_tilde.cpp in Sources */,
 				8FAC0BCE1969731800E09ACB /* c.mousestate.cpp in Sources */,
-				8FAC0BCF1969731800E09ACB /* Utilities.cpp in Sources */,
 				8F1E0E771A46FEF400551842 /* c.matrix.cpp in Sources */,
 				8FAC0BD11969731800E09ACB /* c.meter_tilde.cpp in Sources */,
 				8FAC0BD21969731800E09ACB /* c.colorpanel.cpp in Sources */,
@@ -706,7 +707,6 @@
 				8FAC0BD41969731800E09ACB /* c.freeverb_tilde.cpp in Sources */,
 				8FAC0BD71969731800E09ACB /* c.menu.cpp in Sources */,
 				8FAC0BD81969731800E09ACB /* c.blackboard.cpp in Sources */,
-				8FAC0BD91969731800E09ACB /* AudioFFT.cpp in Sources */,
 				8FAC0BDA1969731800E09ACB /* c.patcherargs.cpp in Sources */,
 				8FAC0BDB1969731800E09ACB /* c.radio.cpp in Sources */,
 				8FD1680C196FCA1D00D5104D /* egraphics_forms.c in Sources */,
@@ -722,7 +722,7 @@
 				8FD16816196FCA1D00D5104D /* eobj_dsp.c in Sources */,
 				8FD167DE196FCA1D00D5104D /* ebox_patcher.c in Sources */,
 				8FD167D6196FCA1D00D5104D /* ebox_attr.c in Sources */,
-				8FAC0BE11969731800E09ACB /* FFTConvolver.cpp in Sources */,
+				8FA9ED5B1AAE084400946CBD /* Utilities.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
