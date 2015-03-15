@@ -17,6 +17,8 @@ void cream_initclass(t_eclass* c);
 extern "C" void setup_c0x2elibrary(void);
 extern "C" void libpd_loadcream(void);
 
+extern "C" void demifft_tilde_setup(void);
+
 // Cinnamon
 extern "C"  void setup_c0x2eatan_tilde(void);
 extern "C"  void setup_c0x2esin_tilde(void);
@@ -52,6 +54,8 @@ extern "C" void setup_c0x2eslider(void);
 extern "C" void setup_c0x2espectroscope_tilde(void);
 extern "C" void setup_c0x2etab(void);
 extern "C" void setup_c0x2etoggle(void);
+
+extern "C" void setup_c0x2evoronoi(void);
 
 // Coffee
 

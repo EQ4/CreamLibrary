@@ -37,6 +37,8 @@ extern "C" void setup_c0x2elibrary(void)
     post("Version %s (%s) for %s",creamversion, __DATE__, pdversion);
     post("");
     
+    demifft_tilde_setup();
+    
     // Cinnamon
     setup_c0x2eatan_tilde();
     setup_c0x2esin_tilde();
@@ -72,6 +74,8 @@ extern "C" void setup_c0x2elibrary(void)
     setup_c0x2espectroscope_tilde();
 	setup_c0x2etab();
 	setup_c0x2etoggle();
+    
+    setup_c0x2evoronoi();
 
 	// Coffee
 	setup_c0x2eloadmess();
@@ -87,5 +91,4 @@ extern "C" void setup_c0x2elibrary(void)
     pd_library_add_folder("cream", "misc");
     pd_library_add_folder("cream", "helps");
 }
-
 
