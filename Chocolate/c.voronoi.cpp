@@ -30,17 +30,19 @@
 #include "Voronoi.hpp"
 using namespace voro;
 
+typedef Voronoi<double>::Point Point;
 typedef struct _voronoi
 {
 	t_ebox      j_box;
     t_outlet*   f_out;
-    Voronoi*    f_voro;
+    Voronoi<double>*    f_voro;
 	t_rgba		f_color_background;
 	t_rgba		f_color_border;
 	t_rgba		f_color_voronoi;
     t_rect      f_rect;
     //t_pt        f_pt;
     long       f_index;
+    void*       f_attr;
 } t_voronoi;
 
 t_eclass *voronoi_class;
@@ -50,6 +52,8 @@ void voronoi_free(t_voronoi *x);
 void voronoi_assist(t_voronoi *x, void *b, long m, long a, char *s);
 
 void voronoi_output(t_voronoi *x, t_symbol* s, long argc, t_atom* argv);
+void voronoi_float(t_voronoi *x, float f);
+void voronoi_symbol(t_voronoi *x, t_symbol* s);
 
 t_pd_err voronoi_notify(t_voronoi *x, t_symbol *s, t_symbol *msg, void *sender, void *data);
 
@@ -62,6 +66,21 @@ void draw_background(t_voronoi *x,  t_object *view, t_rect *rect);
 void voronoi_mousedown(t_voronoi *x, t_object *patcherview, t_pt pt, long modifiers);
 void voronoi_mouseup(t_voronoi *x, t_object *patcherview, t_pt pt, long modifiers);
 void voronoi_mousemove(t_voronoi *x, t_object *patcherview, t_pt pt, long modifiers);
+
+void voronoi_setter(t_object *x, t_eattr* attr, long argc, t_atom* argv)
+{
+    post(attr->name->s_name);
+    post(attr->type->s_name);
+}
+
+void voronoi_getter(t_object *x, t_eattr* attr, long* argc, t_atom** argv)
+{
+    post(attr->name->s_name);
+    post(attr->type->s_name);
+    argc[0] = 1;
+    argv[0] = (t_atom *)malloc(sizeof(t_atom));
+    atom_setlong(*argv, 7);
+}
 
 extern "C" void setup_c0x2evoronoi(void)
 {
@@ -77,10 +96,11 @@ extern "C" void setup_c0x2evoronoi(void)
 	eclass_addmethod(c, (method) voronoi_notify,          "notify",           A_NULL, 0);
     eclass_addmethod(c, (method) voronoi_getdrawparams,   "getdrawparams",    A_NULL, 0);
     eclass_addmethod(c, (method) voronoi_oksize,          "oksize",           A_NULL, 0);
-    eclass_addmethod(c, (method) voronoi_output,          "float",            A_FLOAT,0);
+    eclass_addmethod(c, (method) voronoi_float,          "float",            A_FLOAT,0);
+    eclass_addmethod(c, (method) voronoi_symbol,          "symbol",            A_SYMBOL,0);
     eclass_addmethod(c, (method) voronoi_output,          "bang",             A_NULL, 0);
     eclass_addmethod(c, (method) voronoi_output,          "list",             A_GIMME,0);
-    eclass_addmethod(c, (method) voronoi_output,          "anything",         A_GIMME,0);
+    //eclass_addmethod(c, (method) voronoi_output,          "anything",         A_GIMME,0);
     
     eclass_addmethod(c, (method) voronoi_mousedown,       "mousedown",        A_NULL, 0);
     eclass_addmethod(c, (method) voronoi_mousedown,       "mousedrag",        A_NULL, 0);
@@ -92,6 +112,9 @@ extern "C" void setup_c0x2evoronoi(void)
     CLASS_ATTR_INVISIBLE            (c, "fontslant", 1);
     CLASS_ATTR_INVISIBLE            (c, "fontsize", 1);
 	CLASS_ATTR_DEFAULT              (c, "size", 0, "16. 16.");
+    
+    CLASS_ATTR_LONG                 (c, "void", 0, t_voronoi, f_attr);
+    CLASS_ATTR_ACCESSORS            (c, "void", voronoi_getter, voronoi_setter);
     
 	CLASS_ATTR_RGBA                 (c, "bgcolor", 0, t_voronoi, f_color_background);
 	CLASS_ATTR_LABEL                (c, "bgcolor", 0, "Background Color");
@@ -129,7 +152,7 @@ void *voronoi_new(t_symbol *s, int argc, t_atom *argv)
     ;
 	ebox_new((t_ebox *)x, flags);
     x->f_out = (t_outlet *)bangout((t_object *)x);
-    x->f_voro = new Voronoi();
+    x->f_voro = new Voronoi<double>();
     x->f_index = -1l;
 	ebox_attrprocess_viabinbuf(x, d);
 	ebox_ready((t_ebox *)x);
@@ -160,45 +183,123 @@ double myrand()
     return (double(rand()) / RAND_MAX) * 2. -1;
 }
 
+void voronoi_list(t_voronoi *x, t_symbol* s, long argc, t_atom* argv)
+{
+    if(argc && argv)
+    {
+        for(int i = 0; i < 100; i++)
+        {
+            Point p(myrand(), myrand(), myrand());
+            p.normalize();
+            x->f_voro->add(p);
+        }
+
+        x->f_voro->compute();
+        ebox_invalidate_layer((t_ebox *)x, gensym("background_layer"));
+        ebox_redraw((t_ebox *)x);
+    }
+    
+}
+
+void voronoi_float(t_voronoi *x, float f)
+{
+    
+    x->f_voro->clear();
+    if((int)f%2==0)
+    {
+        f = f+1;
+    }
+    for(int i = 0; i < f; i++)
+    {
+        Point p = Point::fromPolar(1., (double)i / (double)f * HOA_2PI, (double)i / (double)(f -1.) * HOA_PI);
+        x->f_voro->add(p);
+    }
+
+    x->f_voro->compute();
+    ebox_invalidate_layer((t_ebox *)x, gensym("background_layer"));
+    ebox_redraw((t_ebox *)x);
+}
+
+void voronoi_symbol(t_voronoi *x, t_symbol* s)
+{
+    x->f_voro->clear();
+    if(s == gensym("square"))
+    {
+        x->f_voro->add(Point(1., 1., 1.));
+        x->f_voro->add(Point(-1., 1., 1.));
+        x->f_voro->add(Point(-1., -1., 1.));
+        x->f_voro->add(Point(1., -1., 1.));
+        
+        x->f_voro->add(Point(1., 1., -1.));
+        x->f_voro->add(Point(-1., 1., -1.));
+        x->f_voro->add(Point(-1., -1., -1.));
+        x->f_voro->add(Point(1., -1., -1.));
+    }
+    else if(s == gensym("tethrahedron"))
+    {
+        const double oh = -(sqrt(2. / 3.) / sqrt(3. / 8.) - 1.);
+        const double hc = sqrt(1. - oh * oh);
+        const double el = asin(oh / sqrt(hc*hc + oh*oh));
+        x->f_voro->add(Point::fromPolar(1., 0., HOA_PI2));
+        x->f_voro->add(Point::fromPolar(1., 0., el));
+        x->f_voro->add(Point::fromPolar(1., HOA_2PI / 3., el));
+        x->f_voro->add(Point::fromPolar(1., 2. * HOA_2PI / 3., el));
+    }
+    else if(s == gensym("octahedron"))
+    {
+        x->f_voro->add(Point::fromPolar(1., 0., HOA_PI2));
+        x->f_voro->add(Point::fromPolar(1., 0., 0.));
+        x->f_voro->add(Point::fromPolar(1., HOA_PI2, 0.));
+        x->f_voro->add(Point::fromPolar(1., 2. * HOA_PI2, 0.));
+        x->f_voro->add(Point::fromPolar(1., 3. * HOA_PI2, 0.));
+        
+    }
+    else if(s == gensym("icosahedron"))
+    {
+        x->f_voro->add(Point::fromPolar(1., 0., HOA_PI2));
+        for(int i = 1; i < 6; i++)
+        {
+            x->f_voro->add(Point::fromPolar(1., double(i - 1.) / 5. * HOA_2PI, atan(0.5)));
+            x->f_voro->add(Point::fromPolar(1., double(i - 1.) / 5. * HOA_2PI - HOA_PI / 5., -atan(0.5)));
+        }
+        x->f_voro->add(Point::fromPolar(1., 0., -HOA_PI2));
+    }
+    else if(s == gensym("dodecahedron"))
+    {
+        const double phi = (sqrt(5.) - 1.) / 2.; // The golden ratio
+        const double R = 1. / sqrt(3.);
+        const double a = R;
+        const double b = R / phi;
+        const double c = R * phi;
+        
+        for(int i = -1; i < 2; i += 2)
+        {
+            for(int j = -1; j < 2; j += 2)
+            {
+                x->f_voro->add(Point(0., i * c * R, -j * b * R));
+                x->f_voro->add(Point(i * c * R, j * b * R, 0.));
+                x->f_voro->add(Point(i * b * R, 0., -j * c * R));
+                for (int k = -1; k < 2; k += 2)
+                {
+                    x->f_voro->add(Point(i * a * R, j * a * R, -k * a * R));
+                }
+            }
+        }
+    }
+    
+    x->f_voro->compute();
+    ebox_invalidate_layer((t_ebox *)x, gensym("background_layer"));
+    ebox_redraw((t_ebox *)x);
+}
+
 void voronoi_output(t_voronoi *x, t_symbol* s, long argc, t_atom* argv)
 {
     x->f_voro->clear();
-    
     for(int i = 0; i < 100; i++)
     {
-        Point p(myrand(), myrand(), myrand());
-        p.normalize();
-        x->f_voro->add(p);
+        x->f_voro->add(Point(myrand(), myrand(), myrand()));
     }
     
-    /*
-    x->f_voro->add(Point(0., 0., -1.));
-    x->f_voro->add(Point(0., 0., 1.));
-    x->f_voro->add(Point(1., 1., 1.));
-    x->f_voro->add(Point(-1., 1., 1.));
-    x->f_voro->add(Point(-1., -1., 1.));
-    x->f_voro->add(Point(1., -1., 1.));
-    
-    x->f_voro->add(Point(1., 1., -1.));
-    x->f_voro->add(Point(-1., 1., -1.));
-    x->f_voro->add(Point(-1., -1., -1.));
-    x->f_voro->add(Point(1., -1., -1.));
-    x->f_voro->add(Point(0., 0., -1.));
-    */
-    /*
-    for(ulong i = 0; i < 4; i++)
-    {
-        for(ulong j = 0; j < 4; j++)
-        {
-            double az = (float)i / 4. * HOA_2PI;
-            if(j % 2)
-            {
-                az += HOA_PI4;
-            }
-            x->f_voro->add(Point::fromPolar(1., az, (float)j / 4. * HOA_PI2));
-        }
-    }*/
-
     x->f_voro->compute();
     ebox_invalidate_layer((t_ebox *)x, gensym("background_layer"));
     ebox_redraw((t_ebox *)x);
@@ -287,7 +388,7 @@ static void graphics_arc_to(t_elayer *g, t_pt prev, float cx, float cy, float ex
         }
         egraphics_curve_to(g, p2.x, p2.y, p3.x, p3.y,  p4.x, p4.y);
     }
-    if(fabs(extend) > 1e-6)
+    if(fabs(extend) > HOA_EPSILON)
     {
         create_small_arc(radius, angle, extend, c, p2, p3, p4);
         egraphics_curve_to(g, p2.x, p2.y, p3.x, p3.y,  p4.x, p4.y);
@@ -367,7 +468,7 @@ void draw_background(t_voronoi *x, t_object *view, t_rect *rect)
                         extend += HOA_2PI;
                     }
                     
-                    if(fabs(extend) > 1e-6  && fabs(radius2 - radius1) < 1e-3)
+                    if(fabs(extend) > HOA_EPSILON  && fabs(radius2 - radius1) < HOA_EPSILON && fabs(fabs(extend) - HOA_PI)> 1e-6)
                     {
                         egraphics_arc_to(g, 0., 0., extend);
                     }
@@ -391,7 +492,7 @@ void draw_background(t_voronoi *x, t_object *view, t_rect *rect)
                     extend += HOA_2PI;
                 }
            
-                if(fabs(extend) > 1e-6  && fabs(radius2 - radius1) < 1e-3)
+                if(fabs(extend) > HOA_EPSILON  && fabs(radius2 - radius1) < HOA_EPSILON && fabs(fabs(extend) - HOA_PI)> 1e-6)
                 {
                     egraphics_arc_to(g, 0., 0., extend);
                 }
@@ -416,7 +517,6 @@ void draw_background(t_voronoi *x, t_object *view, t_rect *rect)
                     post("%f", t[i].bounds[j].z);
                 }*/
             }
-            post("");
         }
         
         egraphics_set_color_rgba(g, &red);
